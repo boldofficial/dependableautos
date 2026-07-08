@@ -24,21 +24,6 @@ export default function HomePage() {
       {/* ════════════════════════ HERO ════════════════════════ */}
       <section style={heroSection}>
         <div style={heroOverlay} />
-        
-        {/* Animated Background Car */}
-        <svg viewBox="0 0 30 24" className="hero-car" xmlns="http://www.w3.org/2000/svg">
-          {/* Speed lines */}
-          <path d="M 4 12 L 0 12 M 2 14 L -2 14 M 3 10 L 1 10" stroke="#ffffff" strokeWidth="1" strokeLinecap="round" opacity="0.6"/>
-          
-          <g transform="translate(4, 0)">
-            <path d="M 3 14 L 3 11 C 3 8 6 8 8 8 L 13 8 C 16 8 18 9 20 11 L 22 11 C 23 11 24 12 24 14 L 24 16 L 22 16 A 2 2 0 0 0 18 16 L 8 16 A 2 2 0 0 0 4 16 L 2 16 L 2 14 Z" fill="none" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            <path d="M 8 11 L 12 11 L 12 8.5 M 14 11 L 18 11 L 15 8.5" fill="none" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            <circle cx="20" cy="16" r="1.5" fill="#ffffff" />
-            <circle cx="6" cy="16" r="1.5" fill="#ffffff" />
-            {/* Spoiler */}
-            <path d="M 3 11 L 1 10 L 4 10" fill="none" stroke="#ffffff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-          </g>
-        </svg>
 
         <div style={heroContent}>
           <Image
@@ -52,10 +37,10 @@ export default function HomePage() {
           <h1 style={heroTitle}>Dependable Auto Sports</h1>
           <p style={heroTagline}>Quality Pre-Owned Vehicles in Madison, WI</p>
           <div style={heroCtas}>
-            <Link href="/inventory" className="btn btn-accent" style={{ fontSize: '1.05rem' }}>
+            <Link href="/inventory" className="btn btn-primary" style={{ fontSize: '1.05rem', boxShadow: '0 8px 16px rgba(26,63,160,0.2)' }}>
               Browse Inventory →
             </Link>
-            <Link href="/contact" className="btn btn-outline" style={{ borderColor: '#fff', color: '#fff' }}>
+            <Link href="/contact" className="btn btn-outline" style={{ borderColor: '#1a3fa0', color: '#1a3fa0' }}>
               Contact Us
             </Link>
           </div>
@@ -206,69 +191,76 @@ const heroSection = {
   minHeight: 'min(85vh, 700px)',
   display: 'flex',
   alignItems: 'center',
-  justifyContent: 'center',
-  background: 'linear-gradient(135deg, #0f2d7a 0%, #1a3fa0 40%, #2a5fd0 100%)',
+  justifyContent: 'flex-start',
+  paddingLeft: 'clamp(20px, 10vw, 120px)',
+  paddingRight: '20px',
+  background: 'url("https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&q=80&w=1920") center/cover no-repeat',
+  backgroundColor: '#1a1a2e',
   overflow: 'hidden',
 };
 
 const heroOverlay = {
   position: 'absolute',
   inset: 0,
-  background:
-    'radial-gradient(ellipse at 30% 50%, rgba(212,160,23,0.1) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(42,95,208,0.15) 0%, transparent 50%)',
-  animation: 'heroShimmer 15s ease-in-out infinite alternate',
+  background: 'rgba(0,0,0,0.25)',
+  zIndex: 1,
 };
 
 const heroContent = {
   position: 'relative',
   zIndex: 2,
-  textAlign: 'center',
-  padding: '64px 20px',
+  textAlign: 'left',
+  padding: '50px 40px',
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'center',
+  alignItems: 'flex-start',
   gap: '16px',
+  background: 'rgba(255, 255, 255, 0.85)',
+  backdropFilter: 'blur(20px)',
+  WebkitBackdropFilter: 'blur(20px)',
+  borderRadius: '24px',
+  boxShadow: '0 20px 40px rgba(0,0,0,0.15)',
+  border: '1px solid rgba(255, 255, 255, 0.4)',
+  maxWidth: '520px',
   animation: 'fadeInUp 0.8s cubic-bezier(0.22,1,0.36,1)',
 };
 
 const heroLogo = {
   borderRadius: '16px',
-  boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+  boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
 };
 
 const heroTitle = {
-  fontSize: 'clamp(2rem, 5vw, 3.2rem)',
-  fontWeight: 700,
-  color: '#ffffff',
+  fontSize: 'clamp(2rem, 5vw, 3rem)',
+  fontWeight: 800,
+  color: '#1a1a2e',
   letterSpacing: '-0.02em',
   lineHeight: 1.1,
 };
 
 const heroTagline = {
-  fontSize: 'clamp(1rem, 2.5vw, 1.3rem)',
-  color: 'rgba(255,255,255,0.8)',
-  fontWeight: 400,
-  maxWidth: '500px',
+  fontSize: 'clamp(1rem, 2.5vw, 1.2rem)',
+  color: '#444',
+  fontWeight: 500,
+  lineHeight: 1.5,
 };
 
 const heroCtas = {
   display: 'flex',
   gap: '14px',
-  marginTop: '12px',
+  marginTop: '8px',
   flexWrap: 'wrap',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
 };
 
 const heroBadge = {
   marginTop: '16px',
-  padding: '8px 20px',
-  background: 'rgba(255,255,255,0.1)',
-  backdropFilter: 'blur(10px)',
+  padding: '8px 16px',
+  background: 'rgba(26,63,160,0.1)',
+  color: '#1a3fa0',
   borderRadius: '24px',
-  color: 'rgba(255,255,255,0.75)',
-  fontSize: '0.82rem',
-  fontWeight: 500,
-  border: '1px solid rgba(255,255,255,0.12)',
+  fontSize: '0.85rem',
+  fontWeight: 600,
 };
 
 const sectionPadding = {

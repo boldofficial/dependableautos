@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build && node -e \"const fs=require('fs'); fs.rmSync('.next/cache', {recursive:true, force:true});\"",
+    "build": "next build && cp -r public .next/standalone/ && cp -r .next/static .next/standalone/.next/ && rm -rf node_modules .next/cache",
     "start": "next start",
     "lint": "eslint"
   },

@@ -45,7 +45,10 @@ export async function deleteImages(fileIds) {
  * Get the preview URL for an image (with optional transforms).
  */
 export function getImagePreviewUrl(fileId, width = 800, height = 600) {
-  if (fileId.startsWith('demo-')) return `/demo/${fileId.replace('demo-', '')}.png`;
+  if (fileId.startsWith('demo-')) {
+    const name = fileId.split('-')[1].split('_')[0];
+    return `/demo/${name}.png`;
+  }
   return storage.getFilePreview(BUCKET_ID, fileId, width, height);
 }
 
@@ -53,7 +56,10 @@ export function getImagePreviewUrl(fileId, width = 800, height = 600) {
  * Get thumbnail URL for car card display.
  */
 export function getThumbnailUrl(fileId) {
-  if (fileId.startsWith('demo-')) return `/demo/${fileId.replace('demo-', '')}.png`;
+  if (fileId.startsWith('demo-')) {
+    const name = fileId.split('-')[1].split('_')[0];
+    return `/demo/${name}.png`;
+  }
   return storage.getFilePreview(BUCKET_ID, fileId, 400, 300);
 }
 
@@ -61,7 +67,10 @@ export function getThumbnailUrl(fileId) {
  * Get full-size image URL for gallery/lightbox.
  */
 export function getFullImageUrl(fileId) {
-  if (fileId.startsWith('demo-')) return `/demo/${fileId.replace('demo-', '')}.png`;
+  if (fileId.startsWith('demo-')) {
+    const name = fileId.split('-')[1].split('_')[0];
+    return `/demo/${name}.png`;
+  }
   return storage.getFilePreview(BUCKET_ID, fileId, 1200, 900);
 }
 
@@ -69,6 +78,9 @@ export function getFullImageUrl(fileId) {
  * Get the direct view URL (no transforms).
  */
 export function getImageViewUrl(fileId) {
-  if (fileId.startsWith('demo-')) return `/demo/${fileId.replace('demo-', '')}.png`;
+  if (fileId.startsWith('demo-')) {
+    const name = fileId.split('-')[1].split('_')[0];
+    return `/demo/${name}.png`;
+  }
   return storage.getFileView(BUCKET_ID, fileId);
 }

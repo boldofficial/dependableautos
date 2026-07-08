@@ -64,7 +64,7 @@ export async function getCars() {
       Query.orderDesc('$createdAt'),
       Query.limit(100),
     ]);
-    return response.documents;
+    return response.documents.map(doc => ({ ...doc, photoIds: doc.images || [] }));
   } catch (error) {
     console.error('Error fetching cars, falling back to mock data:', error);
     return mockCars;
@@ -80,7 +80,7 @@ export async function getAllCars() {
       Query.orderDesc('$createdAt'),
       Query.limit(100),
     ]);
-    return response.documents;
+    return response.documents.map(doc => ({ ...doc, photoIds: doc.images || [] }));
   } catch (error) {
     console.error('Error fetching all cars, falling back to mock data:', error);
     return mockCars;
@@ -92,7 +92,8 @@ export async function getAllCars() {
  */
 export async function getCar(id) {
   try {
-    return await databases.getDocument(DATABASE_ID, CARS_COLLECTION_ID, id);
+    const doc = await databases.getDocument(DATABASE_ID, CARS_COLLECTION_ID, id);
+    return { ...doc, photoIds: doc.images || [] };
   } catch (error) {
     console.error('Error fetching car, falling back to mock data:', error);
     return mockCars.find(c => c.$id === id) || null;
@@ -117,7 +118,7 @@ export async function createCar(data) {
     vin: data.vin || '',
     description: data.description || '',
     status: data.status || 'active',
-    photoIds: data.photoIds || [],
+    images: data.photoIds || [],
   });
 }
 
@@ -139,7 +140,7 @@ export async function updateCar(id, data) {
   if (data.vin !== undefined) updateData.vin = data.vin;
   if (data.description !== undefined) updateData.description = data.description;
   if (data.status !== undefined) updateData.status = data.status;
-  if (data.photoIds !== undefined) updateData.photoIds = data.photoIds;
+  if (data.photoIds !== undefined) updateData.images = data.photoIds;
 
   return await databases.updateDocument(DATABASE_ID, CARS_COLLECTION_ID, id, updateData);
 }
@@ -161,7 +162,7 @@ export async function getFeaturedCars(limit = 6) {
       Query.orderDesc('$createdAt'),
       Query.limit(limit),
     ]);
-    return response.documents;
+    return response.documents.map(doc => ({ ...doc, photoIds: doc.images || [] }));
   } catch (error) {
     console.error('Error fetching featured cars, falling back to mock data:', error);
     return mockCars.slice(0, limit);

@@ -47,13 +47,17 @@ export default function Navbar() {
         <div className={styles.inner}>
           <Link href="/" className={styles.logo} aria-label="Home">
             <Image
-              src="/logo-wide.png"
+              src="/logo.png"
               alt="Dependable Auto Sports"
-              width={260}
-              height={50}
+              width={44}
+              height={44}
               className={styles.logoImage}
               priority
             />
+            <span className={styles.logoText}>
+              <span className={styles.logoName}>Dependable Auto Sports</span>
+              <span className={styles.logoSub}>Quality Pre-Owned Vehicles</span>
+            </span>
           </Link>
 
           {/* Desktop links */}

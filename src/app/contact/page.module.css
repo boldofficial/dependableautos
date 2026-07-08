@@ -1,0 +1,87 @@
+.main {
+  min-height: 100vh;
+  background: var(--bg);
+  padding-bottom: 5rem;
+}
+
+.header {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: var(--white);
+  padding: 4rem 1rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.header p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 3rem;
+}
+
+.card, .infoCard {
+  background: var(--white);
+  padding: 2.5rem;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+}
+
+.card h2, .infoCard h2 {
+  font-size: 2rem;
+  color: var(--text);
+  margin-bottom: 2rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+  margin-top: 0.25rem;
+}
+
+.infoItem strong {
+  display: block;
+  font-size: 1.125rem;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.infoItem p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.mapContainer {
+  margin-top: 2rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 992px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .formSection {
+    order: 2;
+  }
+  
+  .infoSection {
+    order: 1;
+  }
+}

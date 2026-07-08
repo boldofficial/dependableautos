@@ -1,0 +1,125 @@
+/* ── Photo Gallery ───────────────────────────────────────── */
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── Main Image ──────────────────────────────────────────── */
+.mainWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(135deg, #e8ecf4 0%, #d5dbe8 100%);
+}
+
+.mainImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: fadeIn 0.35s var(--ease-out);
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  color: var(--text-muted);
+  gap: 12px;
+}
+
+.placeholderIcon {
+  font-size: 3.5rem;
+  opacity: 0.4;
+}
+
+.placeholderText {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ── Counter Badge ───────────────────────────────────────── */
+.counter {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  padding: 6px 14px;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+
+/* ── Thumbnails ──────────────────────────────────────────── */
+.thumbStrip {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.thumbStrip::-webkit-scrollbar {
+  height: 4px;
+}
+
+.thumbStrip::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.thumbStrip::-webkit-scrollbar-thumb {
+  background: var(--primary-light);
+  border-radius: 2px;
+}
+
+.thumb {
+  flex-shrink: 0;
+  width: 80px;
+  height: 60px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all var(--transition-fast);
+  opacity: 0.6;
+  scroll-snap-align: start;
+}
+
+.thumb:hover {
+  opacity: 0.9;
+  border-color: var(--primary-light);
+}
+
+.thumbActive {
+  opacity: 1;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(26, 63, 160, 0.2);
+}
+
+.thumbImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .mainWrap {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--radius-md);
+  }
+
+  .thumb {
+    width: 64px;
+    height: 48px;
+  }
+}

@@ -1,0 +1,142 @@
+.main {
+  min-height: 100vh;
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 100%);
+  color: var(--white);
+  padding: 6rem 1rem;
+  text-align: center;
+}
+
+.heroContent h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.heroContent p {
+  font-size: 1.25rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.storySection {
+  padding: 5rem 0;
+  background: var(--bg);
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.storyText h2 {
+  font-size: 2.5rem;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+}
+
+.storyText p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.placeholderBox {
+  background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  border-radius: 12px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--card-shadow);
+}
+
+.placeholderBox span {
+  color: var(--text-light);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+.valuesSection {
+  padding: 5rem 0;
+  background: var(--white);
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.valueCard {
+  background: var(--bg);
+  padding: 2.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease;
+}
+
+.valueCard:hover {
+  transform: translateY(-5px);
+}
+
+.icon {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+}
+
+.valueCard h3 {
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 1rem;
+}
+
+.valueCard p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+.ctaSection {
+  padding: 5rem 0;
+  background: var(--bg);
+}
+
+.ctaBox {
+  background: var(--primary);
+  color: var(--white);
+  padding: 4rem 2rem;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(26, 63, 160, 0.2);
+}
+
+.ctaBox h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.ctaBox p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+  .storyGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .placeholderBox {
+    height: 300px;
+  }
+}

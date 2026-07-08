@@ -1,0 +1,130 @@
+/* ── Login page.module.css ────────────────────── */
+
+.page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2d7a 0%, #1a3fa0 50%, #2a5fd0 100%);
+  padding: 24px;
+}
+
+.card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+  padding: 44px 36px 40px;
+}
+
+.brand {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.brandName {
+  font-size: 22px;
+  font-weight: 800;
+  color: #0f2d7a;
+  letter-spacing: 0.3px;
+}
+
+.brandAccent {
+  color: #d4a017;
+}
+
+.subtitle {
+  text-align: center;
+  font-size: 14px;
+  color: #636e72;
+  margin-bottom: 32px;
+}
+
+/* ── Form ─────────────────────────────────────── */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.input {
+  padding: 12px 14px;
+  border: 1px solid #cfd5db;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #2d3436;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  font-family: inherit;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #1a3fa0;
+  box-shadow: 0 0 0 3px rgba(26, 63, 160, 0.12);
+}
+
+.submitBtn {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 24px;
+  background: #1a3fa0;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background: #2a5fd0;
+}
+
+.submitBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btnSpinner {
+  width: 18px;
+  height: 18px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Error ────────────────────────────────────── */
+.error {
+  background: #ffeaea;
+  border: 1px solid #f5c6cb;
+  color: #a94442;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-align: center;
+}

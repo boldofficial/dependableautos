@@ -1,0 +1,186 @@
+/* ── Vehicle Detail Page ─────────────────────────────────── */
+.page {
+  padding-bottom: 80px;
+  min-height: 80vh;
+}
+
+/* ── Back Link ───────────────────────────────────────────── */
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary);
+  padding: 8px 0;
+  transition: gap var(--transition-fast);
+}
+
+.backLink:hover {
+  gap: 10px;
+}
+
+/* ── Layout ──────────────────────────────────────────────── */
+.content {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  margin-top: 24px;
+}
+
+/* ── Info Panel ──────────────────────────────────────────── */
+.infoPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.titleRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.carTitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 4px;
+}
+
+/* ── Details Grid ────────────────────────────────────────── */
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 16px;
+  background: var(--bg);
+  border-radius: var(--radius-md);
+}
+
+.detailLabel {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-light);
+}
+
+.detailValue {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ── Description ─────────────────────────────────────────── */
+.description {
+  padding-top: 4px;
+}
+
+.descTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.descText {
+  font-size: 0.94rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  white-space: pre-line;
+}
+
+/* ── CTA Buttons ─────────────────────────────────────────── */
+.ctaRow {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ── Inquiry Section ─────────────────────────────────────── */
+.inquirySection {
+  margin-top: 60px;
+  padding: 40px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--card-shadow);
+}
+
+.inquiryTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+/* ── Loading ─────────────────────────────────────────────── */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--text-light);
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(26, 63, 160, 0.15);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ── Not Found ───────────────────────────────────────────── */
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  text-align: center;
+  gap: 16px;
+}
+
+.notFoundIcon {
+  font-size: 4rem;
+  opacity: 0.5;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .inquirySection {
+    padding: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .inquirySection {
+    padding: 20px;
+  }
+}

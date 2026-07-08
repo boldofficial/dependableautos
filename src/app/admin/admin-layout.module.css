@@ -1,0 +1,176 @@
+/* ── admin-layout.module.css ──────────────────── */
+
+/* ── Shell ────────────────────────────────────── */
+.shell {
+  display: flex;
+  min-height: 100vh;
+  background: #f1f3f6;
+}
+
+/* ── Sidebar ──────────────────────────────────── */
+.sidebar {
+  width: 240px;
+  background: #0f2d7a;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  transition: transform 0.25s ease;
+}
+
+.sidebarBrand {
+  padding: 24px 20px 20px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  line-height: 1.35;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebarBrandAccent {
+  color: #d4a017;
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 12px 0;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.navLink:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+.navLinkActive {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  border-left: 3px solid #d4a017;
+  padding-left: 17px;
+}
+
+.navIcon {
+  font-size: 18px;
+  width: 22px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.navSpacer {
+  flex: 1;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
+  background: none;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  transition: background 0.15s, color 0.15s;
+  font-family: inherit;
+}
+
+.logoutBtn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+/* ── Main content ─────────────────────────────── */
+.main {
+  flex: 1;
+  margin-left: 240px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.topbar {
+  height: 56px;
+  background: #fff;
+  border-bottom: 1px solid #e4e8ec;
+  display: flex;
+  align-items: center;
+  padding: 0 28px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.topbarTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #2d3436;
+}
+
+.menuBtn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #2d3436;
+  padding: 4px;
+}
+
+.content {
+  flex: 1;
+  padding: 28px;
+}
+
+/* ── Overlay (mobile) ─────────────────────────── */
+.overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 90;
+}
+
+/* ── Mobile ───────────────────────────────────── */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .menuBtn {
+    display: block;
+  }
+
+  .overlayVisible {
+    display: block;
+  }
+}

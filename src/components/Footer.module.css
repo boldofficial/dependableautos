@@ -1,0 +1,143 @@
+/* ── Footer ──────────────────────────────────────────────── */
+.footer {
+  background: var(--bg-dark);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 64px 0 0;
+  margin-top: auto;
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1.3fr 0.8fr 1fr;
+  gap: 48px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px 48px;
+}
+
+/* ── Brand Column ────────────────────────────────────────── */
+.brand {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.brandTop {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoImage {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+}
+
+.brandName {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.brandDesc {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.6);
+  max-width: 320px;
+}
+
+/* ── Column Heading ──────────────────────────────────────── */
+.columnTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+/* ── Quick Links ─────────────────────────────────────────── */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
+}
+
+.link:hover {
+  color: var(--accent-light);
+  padding-left: 6px;
+}
+
+/* ── Contact Info ────────────────────────────────────────── */
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.5;
+}
+
+.contactIcon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* ── Bottom Bar ──────────────────────────────────────────── */
+.bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 20px 0;
+}
+
+.bottomInner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.dealerBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border: 1px solid rgba(212, 160, 23, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-bottom: 36px;
+  }
+
+  .bottomInner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+}

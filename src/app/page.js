@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import CarCard from '@/components/CarCard';
 import { getFeaturedCars } from '@/lib/cars';
+import { PHONE_DISPLAY, PHONE_TEL, HOURS, ADDRESS_LINE } from '@/lib/business';
 
 /* ── Inline styles (no separate CSS module needed for the home page) ── */
 
@@ -27,15 +28,17 @@ export default function HomePage() {
 
         <div style={heroContent}>
           <Image
-            src="/logo.png"
+            src="/logo-light.png"
             alt="Dependable Auto Sports"
-            width={90}
-            height={90}
+            width={218}
+            height={64}
             style={heroLogo}
             priority
           />
-          <h1 style={heroTitle}>Dependable Auto Sports</h1>
-          <p style={heroTagline}>Quality Pre-Owned Vehicles in Madison, WI</p>
+          <h1 style={heroTitle}>Quality Used Cars in Madison, WI</h1>
+          <p style={heroTagline}>
+            Hand-inspected pre-owned cars, trucks, and SUVs at fair, transparent prices — from your locally owned, licensed Madison dealer.
+          </p>
           <div style={heroCtas}>
             <Link href="/inventory" className="btn btn-primary" style={{ fontSize: '1.05rem', boxShadow: '0 8px 16px rgba(26,63,160,0.2)' }}>
               Browse Inventory →
@@ -112,8 +115,44 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ════════════════ CONTACT PREVIEW ════════════════════ */}
+      {/* ════════════════ FINANCING & TRADE-INS ══════════════ */}
       <section style={sectionPadding}>
+        <div className="container">
+          <h2 className="section-title">Financing &amp; Trade-Ins</h2>
+          <p className="section-subtitle">
+            Flexible ways to get you into your next vehicle.
+          </p>
+
+          <div style={valueGrid}>
+            <div style={valueCard} className="glass-card">
+              <span style={valueIcon}>💳</span>
+              <h3 style={valueTitle}>Financing Available</h3>
+              <p style={valueDesc}>
+                We work with multiple lenders to help you find an auto loan that fits your
+                budget. Questions about rates or getting approved? Give us a call and we&apos;ll
+                walk you through your options.
+              </p>
+            </div>
+            <div style={valueCard} className="glass-card">
+              <span style={valueIcon}>🔄</span>
+              <h3 style={valueTitle}>Trade-Ins Welcome</h3>
+              <p style={valueDesc}>
+                Put your current vehicle to work. Bring it in for a fair, no-pressure
+                appraisal and apply its value directly toward your next car.
+              </p>
+            </div>
+          </div>
+
+          <div style={centerWrap}>
+            <Link href="/contact" className="btn btn-primary" style={{ marginTop: 8 }}>
+              Ask About Financing or a Trade-In →
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════ CONTACT PREVIEW ════════════════════ */}
+      <section style={{ ...sectionPadding, background: 'var(--white)' }}>
         <div className="container">
           <h2 className="section-title">Visit Us</h2>
           <p className="section-subtitle">
@@ -126,22 +165,25 @@ export default function HomePage() {
                 <span style={contactIcon}>📍</span>
                 <div>
                   <strong>Address</strong>
-                  <p style={contactDetail}>4290 Hoepker Rd, Madison, WI 53704</p>
+                  <p style={contactDetail}>{ADDRESS_LINE}</p>
                 </div>
               </div>
               <div style={contactItem}>
                 <span style={contactIcon}>📞</span>
                 <div>
                   <strong>Phone</strong>
-                  <p style={contactDetail}>(608) 555-0123</p>
+                  <p style={contactDetail}>
+                    <a href={`tel:${PHONE_TEL}`} style={{ color: 'inherit', textDecoration: 'none' }}>{PHONE_DISPLAY}</a>
+                  </p>
                 </div>
               </div>
               <div style={contactItem}>
                 <span style={contactIcon}>🕐</span>
                 <div>
                   <strong>Hours</strong>
-                  <p style={contactDetail}>Mon–Sat: 9 AM – 6 PM</p>
-                  <p style={contactDetail}>Sun: Closed</p>
+                  {HOURS.map((h) => (
+                    <p key={h.label} style={contactDetail}>{h.label}: {h.display}</p>
+                  ))}
                 </div>
               </div>
               <Link href="/contact" className="btn btn-primary" style={{ marginTop: 8, alignSelf: 'flex-start' }}>
@@ -226,8 +268,7 @@ const heroContent = {
 };
 
 const heroLogo = {
-  borderRadius: '16px',
-  boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+  marginBottom: '4px',
 };
 
 const heroTitle = {

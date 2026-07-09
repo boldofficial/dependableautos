@@ -1,5 +1,6 @@
 import styles from './page.module.css';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'About Us',
@@ -30,11 +31,15 @@ export default function AboutPage() {
                 As a fully licensed and bonded dealership (Dealer MV 5126), we stand behind every vehicle we sell. Our inventory is carefully selected and inspected to ensure you drive away with confidence.
               </p>
             </div>
-            <div className={styles.storyImagePlaceholder}>
-              {/* Optional: Add an image here later */}
-              <div className={styles.placeholderBox}>
-                <span>Quality Vehicles, Trusted Service</span>
-              </div>
+            <div className={styles.storyImageContainer}>
+              <Image 
+                src="/about-story.png"
+                alt="Dependable Auto Sports Showroom"
+                width={600}
+                height={400}
+                className={styles.storyImage}
+                style={{ objectFit: 'cover', borderRadius: 'var(--radius-lg)' }}
+              />
             </div>
           </div>
         </div>

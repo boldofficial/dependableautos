@@ -1,9 +1,20 @@
 import styles from './page.module.css';
 import ContactForm from '@/components/ContactForm';
+import {
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  EMAIL,
+  FACEBOOK_URL,
+  ADDRESS,
+  ADDRESS_LINE,
+  HOURS,
+} from '@/lib/business';
 
 export const metadata = {
-  title: 'Contact Us | Dependable Auto Sports LLC',
-  description: 'Get in touch with Dependable Auto Sports LLC. We are located in Madison, WI.',
+  title: 'Contact Us',
+  description:
+    `Contact Dependable Auto Sports in Madison, WI. Call ${PHONE_DISPLAY}, email us, or visit ${ADDRESS_LINE}. Open Mon–Fri 9–6 and Sat 10–4.`,
+  alternates: { canonical: '/contact' },
 };
 
 export default function ContactPage() {
@@ -33,7 +44,7 @@ export default function ContactPage() {
                 <div className={styles.icon}>📍</div>
                 <div>
                   <strong>Address</strong>
-                  <p>4290 Hoepker Rd<br/>Madison, WI 53704</p>
+                  <p>{ADDRESS.street}<br/>{ADDRESS.city}, {ADDRESS.state} {ADDRESS.zip}</p>
                 </div>
               </div>
 
@@ -41,7 +52,7 @@ export default function ContactPage() {
                 <div className={styles.icon}>📞</div>
                 <div>
                   <strong>Phone</strong>
-                  <p><a href="tel:+16082174010" style={{ color: 'inherit', textDecoration: 'none' }}>+1 608-217-4010</a></p>
+                  <p><a href={`tel:${PHONE_TEL}`} style={{ color: 'inherit', textDecoration: 'none' }}>{PHONE_DISPLAY}</a></p>
                 </div>
               </div>
 
@@ -49,7 +60,7 @@ export default function ContactPage() {
                 <div className={styles.icon}>✉️</div>
                 <div>
                   <strong>Email</strong>
-                  <p><a href="mailto:dependableautosportsllc@yahoo.com" style={{ color: 'inherit', textDecoration: 'none' }}>dependableautosportsllc@yahoo.com</a></p>
+                  <p><a href={`mailto:${EMAIL}`} style={{ color: 'inherit', textDecoration: 'none' }}>{EMAIL}</a></p>
                 </div>
               </div>
 
@@ -57,7 +68,7 @@ export default function ContactPage() {
                 <div className={styles.icon}>👍</div>
                 <div>
                   <strong>Facebook</strong>
-                  <p><a href="https://www.facebook.com/DependableAutoSports/" target="_blank" rel="noreferrer" style={{ color: 'var(--primary)', textDecoration: 'none' }}>@DependableAutoSports</a></p>
+                  <p><a href={FACEBOOK_URL} target="_blank" rel="noreferrer" style={{ color: 'var(--primary)', textDecoration: 'none' }}>@DependableAutoSports</a></p>
                 </div>
               </div>
 
@@ -65,7 +76,11 @@ export default function ContactPage() {
                 <div className={styles.icon}>🕒</div>
                 <div>
                   <strong>Business Hours</strong>
-                  <p>Monday - Friday: 9am - 6pm<br/>Saturday: 10am - 4pm<br/>Sunday: Closed</p>
+                  <p>
+                    {HOURS.map((h, i) => (
+                      <span key={h.label}>{i > 0 && <br />}{h.label}: {h.display}</span>
+                    ))}
+                  </p>
                 </div>
               </div>
 

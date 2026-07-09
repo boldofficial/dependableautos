@@ -29,9 +29,8 @@
 }
 
 .logoImage {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-sm);
+  height: 40px;
+  width: auto;
 }
 
 .brandName {

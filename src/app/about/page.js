@@ -2,8 +2,10 @@ import styles from './page.module.css';
 import Link from 'next/link';
 
 export const metadata = {
-  title: 'About Us | Dependable Auto Sports LLC',
-  description: 'Learn more about Dependable Auto Sports LLC, your trusted used car dealer in Madison, WI.',
+  title: 'About Us',
+  description:
+    'Dependable Auto Sports LLC is a licensed, family-run used car dealer in Madison, WI (Dealer MV 5126). Learn about our commitment to quality vehicles, fair pricing, and honest service.',
+  alternates: { canonical: '/about' },
 };
 
 export default function AboutPage() {

@@ -1,6 +1,16 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import styles from './Footer.module.css';
+import {
+  BUSINESS_NAME,
+  DEALER_LICENSE,
+  PHONE_DISPLAY,
+  PHONE_TEL,
+  EMAIL,
+  FACEBOOK_URL,
+  ADDRESS,
+  HOURS,
+} from '@/lib/business';
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -12,13 +22,13 @@ export default function Footer() {
         <div className={styles.brand}>
           <div className={styles.brandTop}>
             <Image
-              src="/logo.png"
+              src="/logo-dark.png"
               alt="Dependable Auto Sports"
-              width={48}
-              height={48}
+              width={160}
+              height={47}
               className={styles.logoImage}
             />
-            <span className={styles.brandName}>Dependable Auto Sports LLC</span>
+            <span className={styles.brandName}>{BUSINESS_NAME}</span>
           </div>
           <p className={styles.brandDesc}>
             Your trusted source for quality pre-owned vehicles in Madison, Wisconsin.
@@ -43,23 +53,27 @@ export default function Footer() {
           <div className={styles.contactList}>
             <div className={styles.contactItem}>
               <span className={styles.contactIcon}>📍</span>
-              <span>4290 Hoepker Rd<br />Madison, WI 53704</span>
+              <span>{ADDRESS.street}<br />{ADDRESS.city}, {ADDRESS.state} {ADDRESS.zip}</span>
             </div>
             <div className={styles.contactItem}>
               <span className={styles.contactIcon}>📞</span>
-              <a href="tel:+16082174010" style={{ color: 'inherit', textDecoration: 'none' }}>+1 608-217-4010</a>
+              <a href={`tel:${PHONE_TEL}`} style={{ color: 'inherit', textDecoration: 'none' }}>{PHONE_DISPLAY}</a>
             </div>
             <div className={styles.contactItem}>
               <span className={styles.contactIcon}>✉️</span>
-              <a href="mailto:dependableautosportsllc@yahoo.com" style={{ color: 'inherit', textDecoration: 'none' }}>dependableautosportsllc@yahoo.com</a>
+              <a href={`mailto:${EMAIL}`} style={{ color: 'inherit', textDecoration: 'none' }}>{EMAIL}</a>
             </div>
             <div className={styles.contactItem}>
               <span className={styles.contactIcon}>👍</span>
-              <a href="https://www.facebook.com/DependableAutoSports/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Facebook</a>
+              <a href={FACEBOOK_URL} target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>Facebook</a>
             </div>
             <div className={styles.contactItem}>
               <span className={styles.contactIcon}>🕐</span>
-              <span>Mon–Sat: 9 AM – 6 PM<br />Sun: Closed</span>
+              <span>
+                {HOURS.map((h, i) => (
+                  <span key={h.label}>{i > 0 && <br />}{h.label}: {h.display}</span>
+                ))}
+              </span>
             </div>
           </div>
         </div>
@@ -68,9 +82,9 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className={styles.bottom}>
         <div className={styles.bottomInner}>
-          <span>© {year} Dependable Auto Sports LLC. All rights reserved.</span>
+          <span>© {year} {BUSINESS_NAME}. All rights reserved.</span>
           <span className={styles.dealerBadge}>
-            🏷️ Licensed Dealer MV 5126
+            🏷️ Licensed Dealer {DEALER_LICENSE}
           </span>
         </div>
       </div>

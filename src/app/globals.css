@@ -56,6 +56,10 @@
 }
 
 html {
+  /* Base font size bumped from the 16px default to 18px (112.5%) for
+     readability. Nearly all type/spacing uses rem, so this scales the whole
+     site proportionally across every page. */
+  font-size: 112.5%;
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
@@ -63,8 +67,8 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.65;
   color: var(--text);
   background-color: var(--bg);
   -webkit-font-smoothing: antialiased;
@@ -379,8 +383,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
-  body {
-    font-size: 15px;
+  html {
+    /* Slightly smaller base on phones (17px) — still well above the old 15px. */
+    font-size: 106.25%;
   }
 
   .container {
